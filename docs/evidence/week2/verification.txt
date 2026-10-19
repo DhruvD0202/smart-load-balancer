@@ -1,0 +1,20 @@
+Week 2 verification summary
+Environment: Windows, Python 3.13.0
+
+Command: python -m unittest discover -s tests -v
+Observed final result: Ran 35 tests in 23.129s; OK.
+Includes the original 10 Week 1 TCP tests.
+
+Command: python load_balancer.py --check-config
+Observed result: Configuration valid: 3 backends, 3 pools, 2 routes.
+
+Command: python tests/smoke_week2.py
+Observed result: PASS. Full captured output is in demo.txt in this directory.
+The demo used three actual backend processes and the HTTP balancer on temporary
+loopback ports. Its owned processes were stopped after the checks.
+
+Syntax compilation succeeded for the new Python entry points and supporting modules.
+The socket tests ran outside the restricted tool sandbox because Windows asyncio
+event-loop initialization had previously stalled in that sandbox.
+
+This file is a verification summary, not a verbatim terminal transcript.

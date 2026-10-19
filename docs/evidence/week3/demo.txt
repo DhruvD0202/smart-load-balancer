@@ -1,0 +1,21 @@
+Python 3.13.0; platform=win32
+Temporary ports: balancer=51504, backends=[51505, 51506, 51507]
+Controlled demo: weights 3:2:1; health interval 0.2s, timeout 0.4s, thresholds 2/2.
+Least-connections workload: one 3-second request plus six fast requests.
+ROUND-ROBIN: backend-1 -> backend-2 -> backend-3 -> backend-1 -> backend-2 -> backend-3
+WEIGHTED (12 requests): {"backend-1": 6, "backend-2": 4, "backend-3": 2}
+LEAST-CONNECTIONS: while backend-1 was busy, fast requests used backend-2 -> backend-3 -> backend-2 -> backend-3 -> backend-2 -> backend-3
+FAILURE: health checks removed backend-2; requests used backend-1 -> backend-3 -> backend-1 -> backend-3 -> backend-1 -> backend-3
+RECOVERY: backend-1 -> backend-2 -> backend-3 -> backend-1 -> backend-2 -> backend-3
+MID-RESPONSE FAILURE: client detected truncation (16 body bytes).
+EMPTY STATIC POOL: /static -> HTTP 503; /api still works.
+ALL DOWN: /hello -> HTTP 503; /stats stays available; active=0.
+Algorithm: round_robin | Uptime: 5.3s
+Backend      Health     Wgt Active Requests Complete Failed Cancel Avg ms
+backend-1    unhealthy    3      0        7        6      1      0     9.8
+backend-2    unhealthy    2      0        3        3      0      0     8.3
+backend-3    unhealthy    1      0        5        5      0      0    14.5
+Health probes and /stats reads are excluded from backend request counts.
+Avg ms: completed request duration, including upload and backend waits.
+JSON LOGS: request fields and incomplete-response event verified.
+PASS: Week 3 algorithms, health recovery, stats, and failure checks.

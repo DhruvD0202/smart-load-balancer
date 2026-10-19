@@ -1,0 +1,39 @@
+2026-10-17 17:07:11,481 INFO HTTP load balancer on 127.0.0.1:60083 algorithm=round_robin pools=default, api, static
+2026-10-17 17:07:11,664 INFO request client=('127.0.0.1', 60091) method=GET path='/ready' pool=default backend=backend-1 status=200 outcome=complete duration_ms=5.45
+2026-10-17 17:07:12,043 INFO request client=('127.0.0.1', 60095) method=GET path='/hello' pool=default backend=backend-2 status=200 outcome=complete duration_ms=25.70
+2026-10-17 17:07:12,060 INFO request client=('127.0.0.1', 60097) method=GET path='/hello' pool=default backend=backend-3 status=200 outcome=complete duration_ms=15.18
+2026-10-17 17:07:12,076 INFO request client=('127.0.0.1', 60099) method=GET path='/hello' pool=default backend=backend-1 status=200 outcome=complete duration_ms=10.57
+2026-10-17 17:07:12,093 INFO request client=('127.0.0.1', 60101) method=GET path='/hello' pool=default backend=backend-2 status=200 outcome=complete duration_ms=15.36
+2026-10-17 17:07:12,111 INFO request client=('127.0.0.1', 60103) method=GET path='/hello' pool=default backend=backend-3 status=200 outcome=complete duration_ms=17.06
+2026-10-17 17:07:12,114 INFO request client=('127.0.0.1', 60105) method=GET path='/hello' pool=default backend=backend-1 status=200 outcome=complete duration_ms=2.07
+2026-10-17 17:07:12,116 INFO request client=('127.0.0.1', 60107) method=GET path='/api/items?course=CN' pool=api backend=backend-1 status=200 outcome=complete duration_ms=1.27
+2026-10-17 17:07:12,133 INFO request client=('127.0.0.1', 60109) method=GET path='/api/items?course=CN' pool=api backend=backend-2 status=200 outcome=complete duration_ms=15.34
+2026-10-17 17:07:12,164 INFO request client=('127.0.0.1', 60111) method=GET path='/api/items?course=CN' pool=api backend=backend-1 status=200 outcome=complete duration_ms=27.49
+2026-10-17 17:07:12,171 INFO request client=('127.0.0.1', 60113) method=GET path='/api/items?course=CN' pool=api backend=backend-2 status=200 outcome=complete duration_ms=4.22
+2026-10-17 17:07:12,198 INFO request client=('127.0.0.1', 60115) method=GET path='/api/items?course=CN' pool=api backend=backend-1 status=200 outcome=complete duration_ms=24.00
+2026-10-17 17:07:12,216 INFO request client=('127.0.0.1', 60117) method=GET path='/api/items?course=CN' pool=api backend=backend-2 status=200 outcome=complete duration_ms=14.68
+2026-10-17 17:07:12,235 INFO request client=('127.0.0.1', 60119) method=GET path='/static/style.css' pool=static backend=backend-3 status=200 outcome=complete duration_ms=15.70
+2026-10-17 17:07:12,262 INFO request client=('127.0.0.1', 60121) method=GET path='/static/style.css' pool=static backend=backend-3 status=200 outcome=complete duration_ms=25.70
+2026-10-17 17:07:12,267 INFO request client=('127.0.0.1', 60123) method=GET path='/static/style.css' pool=static backend=backend-3 status=200 outcome=complete duration_ms=3.24
+2026-10-17 17:07:12,296 INFO request client=('127.0.0.1', 60125) method=GET path='/static/style.css' pool=static backend=backend-3 status=200 outcome=complete duration_ms=26.84
+2026-10-17 17:07:12,308 INFO request client=('127.0.0.1', 60127) method=GET path='/static/style.css' pool=static backend=backend-3 status=200 outcome=complete duration_ms=9.23
+2026-10-17 17:07:12,313 INFO request client=('127.0.0.1', 60129) method=GET path='/static/style.css' pool=static backend=backend-3 status=200 outcome=complete duration_ms=3.18
+2026-10-17 17:07:12,329 INFO request client=('127.0.0.1', 60131) method=GET path='/apiculture' pool=default backend=backend-2 status=200 outcome=complete duration_ms=14.62
+2026-10-17 17:07:12,335 INFO request client=('127.0.0.1', 60133) method=GET path='/apiculture' pool=default backend=backend-3 status=200 outcome=complete duration_ms=3.19
+2026-10-17 17:07:12,345 INFO request client=('127.0.0.1', 60135) method=GET path='/apiculture' pool=default backend=backend-1 status=200 outcome=complete duration_ms=9.10
+2026-10-17 17:07:12,360 INFO request client=('127.0.0.1', 60137) method=GET path='/apiculture' pool=default backend=backend-2 status=200 outcome=complete duration_ms=13.52
+2026-10-17 17:07:12,377 INFO request client=('127.0.0.1', 60139) method=GET path='/apiculture' pool=default backend=backend-3 status=200 outcome=complete duration_ms=15.92
+2026-10-17 17:07:12,394 INFO request client=('127.0.0.1', 60141) method=GET path='/apiculture' pool=default backend=backend-1 status=200 outcome=complete duration_ms=15.86
+2026-10-17 17:07:12,411 INFO request client=('127.0.0.1', 60143) method=POST path='/api/echo' pool=api backend=backend-1 status=200 outcome=complete duration_ms=15.45
+2026-10-17 17:07:13,715 INFO request client=('127.0.0.1', 60147) method=GET path='/slow?request=1' pool=default backend=backend-2 status=200 outcome=complete duration_ms=1002.18
+2026-10-17 17:07:14,721 INFO request client=('127.0.0.1', 60153) method=GET path='/slow?request=2' pool=default backend=backend-3 status=200 outcome=complete duration_ms=1003.22
+2026-10-17 17:07:15,730 INFO request client=('127.0.0.1', 60155) method=GET path='/slow?request=3' pool=default backend=backend-1 status=200 outcome=complete duration_ms=1005.51
+2026-10-17 17:07:16,739 INFO request client=('127.0.0.1', 60157) method=GET path='/slow?request=1' pool=default backend=backend-2 status=200 outcome=complete duration_ms=1005.10
+2026-10-17 17:07:16,739 INFO request client=('127.0.0.1', 60159) method=GET path='/slow?request=3' pool=default backend=backend-1 status=200 outcome=complete duration_ms=1003.74
+2026-10-17 17:07:16,740 INFO request client=('127.0.0.1', 60158) method=GET path='/slow?request=2' pool=default backend=backend-3 status=200 outcome=complete duration_ms=1004.76
+2026-10-17 17:07:16,758 WARNING request_error client=('127.0.0.1', 60164) phase=request error=HTTPError detail='Invalid or duplicate Content-Length'
+2026-10-17 17:07:16,758 INFO request client=('127.0.0.1', 60164) method=- path='-' pool=- backend=- status=400 outcome=error duration_ms=0.37
+2026-10-17 17:07:18,800 WARNING request_error client=('127.0.0.1', 60165) phase=backend error=ConnectionRefusedError detail='[WinError 1225] The remote computer refused the network connection'
+2026-10-17 17:07:18,802 INFO request client=('127.0.0.1', 60165) method=GET path='/static/failure' pool=static backend=backend-3 status=502 outcome=error duration_ms=2034.55
+2026-10-17 17:07:18,810 INFO request client=('127.0.0.1', 60167) method=GET path='/api/still-working' pool=api backend=backend-2 status=200 outcome=complete duration_ms=4.35
+2026-10-17 17:07:19,341 INFO request client=('127.0.0.1', 60170) method=GET path='/static/recovered' pool=static backend=backend-3 status=200 outcome=complete duration_ms=3.37

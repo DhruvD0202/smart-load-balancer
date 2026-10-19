@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-10-19T17:31:56.250+00:00",
+  "algorithm": "round_robin",
+  "uptime_seconds": 5.047,
+  "health_check": {
+    "enabled": true,
+    "path": "/health",
+    "interval": 0.2,
+    "timeout": 0.4,
+    "failure_threshold": 2,
+    "recovery_threshold": 2
+  },
+  "pools": {
+    "default": {
+      "members": [
+        "backend-1",
+        "backend-2",
+        "backend-3"
+      ],
+      "eligible": []
+    },
+    "api": {
+      "members": [
+        "backend-1",
+        "backend-2"
+      ],
+      "eligible": []
+    },
+    "static": {
+      "members": [
+        "backend-3"
+      ],
+      "eligible": []
+    }
+  },
+  "totals": {
+    "active": 0,
+    "requests": 15,
+    "completed": 14,
+    "failed": 1,
+    "cancelled": 0
+  },
+  "unassigned_errors": 2,
+  "backends": [
+    {
+      "name": "backend-1",
+      "host": "127.0.0.1",
+      "port": 51505,
+      "weight": 3,
+      "health": "unhealthy",
+      "eligible": false,
+      "active": 0,
+      "requests": 7,
+      "completed": 6,
+      "failed": 1,
+      "cancelled": 0,
+      "http_error_responses": 0,
+      "avg_response_ms": 9.763,
+      "last_response_ms": 1.738,
+      "health_checks": 11,
+      "consecutive_successes": 0,
+      "consecutive_failures": 2,
+      "last_checked": "2026-10-19T17:31:56.186+00:00",
+      "last_health_error": "TimeoutError: "
+    },
+    {
+      "name": "backend-2",
+      "host": "127.0.0.1",
+      "port": 51506,
+      "weight": 2,
+      "health": "unhealthy",
+      "eligible": false,
+      "active": 0,
+      "requests": 3,
+      "completed": 3,
+      "failed": 0,
+      "cancelled": 0,
+      "http_error_responses": 0,
+      "avg_response_ms": 8.346,
+      "last_response_ms": 1.821,
+      "health_checks": 11,
+      "consecutive_successes": 0,
+      "consecutive_failures": 2,
+      "last_checked": "2026-10-19T17:31:56.186+00:00",
+      "last_health_error": "TimeoutError: "
+    },
+    {
+      "name": "backend-3",
+      "host": "127.0.0.1",
+      "port": 51507,
+      "weight": 1,
+      "health": "unhealthy",
+      "eligible": false,
+      "active": 0,
+      "requests": 5,
+      "completed": 5,
+      "failed": 0,
+      "cancelled": 0,
+      "http_error_responses": 0,
+      "avg_response_ms": 14.49,
+      "last_response_ms": 15.31,
+      "health_checks": 11,
+      "consecutive_successes": 0,
+      "consecutive_failures": 4,
+      "last_checked": "2026-10-19T17:31:56.187+00:00",
+      "last_health_error": "TimeoutError: "
+    }
+  ],
+  "latency_definition": "Completed assigned requests: accept-to-transfer end, including client upload and backend waits; excludes cleanup."
+}

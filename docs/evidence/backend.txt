@@ -1,0 +1,11 @@
+backend-1 listening on http://127.0.0.1:61457; /slow delay=1s (Ctrl+C to stop)
+127.0.0.1 - - [17/Oct/2026 14:38:33] "GET /ready HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 14:38:33] "GET /ready HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 14:38:33] "GET /hello?course=CN HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 14:38:33] "HEAD /hello HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 14:38:35] "GET /slow?request=1 HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 14:38:36] "GET /slow?request=2 HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 14:38:37] "GET /slow?request=3 HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 14:38:38] "GET /slow?request=1 HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 14:38:38] "GET /slow?request=2 HTTP/1.1" 200 -
+127.0.0.1 - - [17/Oct/2026 14:38:38] "GET /slow?request=3 HTTP/1.1" 200 -

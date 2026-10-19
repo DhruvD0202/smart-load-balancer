@@ -1,0 +1,33 @@
+Browser classroom verification
+Environment: Windows / Python 3.13.0
+
+python -m unittest discover -s tests -v
+Ran 60 tests in 50.014s
+OK
+
+After the final control-token input adjustment:
+python -m unittest discover -s tests -p test_demo_app.py -k controls_are_bounded -v
+Ran 1 test in 2.839s
+OK
+
+After moving history clearing to the beginning of a new run:
+python -m unittest discover -s tests -p test_demo_app.py -k real_guided_algorithms -v
+Ran 1 test in 7.636s
+OK
+
+node --check demo_ui/app.js
+Exit code 0 (including final UI text/state adjustments).
+
+Manual browser checks against the local app:
+- Round-robin experiment: PASS; 6 completed, counts 2/2/2.
+- Weighted experiment: PASS; 12 completed, counts 6/4/2.
+- Least-connections experiment: PASS; six fast requests avoided the busy backend.
+- /truncate action: HTTP 200 with incomplete body; failed transfers increased to 1.
+- Stop backend-2: process stopped first, then health became unhealthy.
+- Start backend-2: recovered to healthy automatically.
+- Narrow browser layout inspected visually.
+- Fresh weighted run after a truncated response: inspector showed the new
+  /hello body and matched the current request history.
+- Screenshot: classroom.png; measured state: weighted-snapshot.json.
+
+These are functional demonstrations, not throughput measurements.

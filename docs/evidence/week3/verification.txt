@@ -1,0 +1,22 @@
+Week 3 verification summary
+Environment: Windows, Python 3.13.0
+
+Command: python -m unittest discover -s tests -v
+Observed result: Ran 54 tests in 31.613s; OK.
+Includes the original TCP tests, HTTP/config tests, scheduler tests, health
+checks, stats isolation, JSON formatting, and failure/cancellation accounting.
+
+Command: python demo_week3.py
+Observed result: PASS. The actual captured output is in demo.txt beside this file.
+Weighted 3:2:1 counts for 12 requests were 6:4:2.
+Least-connections avoided a backend while it held one 3-second request.
+Health checks removed/re-added a stopped/restarted backend.
+A truncated response was recorded as incomplete; an empty healthy pool
+returned 503; /stats stayed available with all backends down.
+Final counters: 15 assigned, 14 completed, 1 failed, 0 active, 0 cancelled.
+
+The automated demo used temporary loopback ports and stopped its own processes.
+Socket tests and the demo ran outside the tool sandbox because Windows asyncio
+event-loop initialization previously stalled inside that sandbox.
+
+This file is a verification summary, not a verbatim terminal transcript.

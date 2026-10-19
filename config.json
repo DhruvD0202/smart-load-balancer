@@ -1,0 +1,29 @@
+{
+  "listen": {"host": "127.0.0.1", "port": 8080},
+  "algorithm": "round_robin",
+  "backends": [
+    {"name": "backend-1", "host": "127.0.0.1", "port": 9001, "weight": 3},
+    {"name": "backend-2", "host": "127.0.0.1", "port": 9002, "weight": 2},
+    {"name": "backend-3", "host": "127.0.0.1", "port": 9003, "weight": 1}
+  ],
+  "pools": {
+    "default": ["backend-1", "backend-2", "backend-3"],
+    "api": ["backend-1", "backend-2"],
+    "static": ["backend-3"]
+  },
+  "default_pool": "default",
+  "routes": [
+    {"prefix": "/api", "pool": "api"},
+    {"prefix": "/static", "pool": "static"}
+  ],
+  "timeouts": {"headers": 5, "body": 5, "connect": 3, "response": 10},
+  "limits": {"header_bytes": 16384, "body_bytes": 1048576},
+  "health_check": {
+    "enabled": true,
+    "path": "/health",
+    "interval": 2,
+    "timeout": 1,
+    "failure_threshold": 2,
+    "recovery_threshold": 2
+  }
+}

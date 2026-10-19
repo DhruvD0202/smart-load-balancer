@@ -1,0 +1,9 @@
+backend-2 listening on http://127.0.0.1:51506; /slow delay=0.1s (Ctrl+C to stop)
+127.0.0.1 - - [19/Oct/2026 23:01:53] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [19/Oct/2026 23:01:53] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [19/Oct/2026 23:01:53] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [19/Oct/2026 23:01:53] "GET /hello HTTP/1.1" 200 -
+127.0.0.1 - - [19/Oct/2026 23:01:53] "GET /hello HTTP/1.1" 200 -
+127.0.0.1 - - [19/Oct/2026 23:01:53] "GET /hello HTTP/1.1" 200 -
+127.0.0.1 - - [19/Oct/2026 23:01:53] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [19/Oct/2026 23:01:54] "GET /health HTTP/1.1" 200 -

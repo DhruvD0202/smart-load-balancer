@@ -1,0 +1,23 @@
+Python 3.13.0; platform=win32
+Temporary ports: balancer=60083, backends=[60084, 60085, 60086]
+/hello -> pool=default: backend-2 -> backend-3 -> backend-1 -> backend-2 -> backend-3 -> backend-1
+/api/items?course=CN -> pool=api: backend-1 -> backend-2 -> backend-1 -> backend-2 -> backend-1 -> backend-2
+/static/style.css -> pool=static: backend-3 -> backend-3 -> backend-3 -> backend-3 -> backend-3 -> backend-3
+/apiculture -> pool=default: backend-2 -> backend-3 -> backend-1 -> backend-2 -> backend-3 -> backend-1
+POST /api/echo -> backend-1: body and X-Demo header preserved.
+PASS: round-robin, path routing, route boundary, and POST checks.
+SEQUENTIAL: 3/3 valid responses in 3.02s
+  /slow?request=1 -> backend-2 (1.00s)
+  /slow?request=2 -> backend-3 (1.01s)
+  /slow?request=3 -> backend-1 (1.01s)
+CONCURRENT: 3/3 valid responses in 1.01s
+  /slow?request=1 -> backend-2 (1.01s)
+  /slow?request=2 -> backend-3 (1.01s)
+  /slow?request=3 -> backend-1 (1.01s)
+PASS: all responses contain the expected request path.
+Timing demonstrates overlapping waits; it is not a capacity benchmark.
+Malformed request: duplicate Content-Length -> HTTP 400.
+Backend-3 stopped: /static/failure -> HTTP 502.
+API pool still returns HTTP 200; balancer stayed alive.
+Backend-3 restarted: /static/recovered -> HTTP 200.
+PASS: Week 2 CLI demonstration completed; no health checks/retries implied.

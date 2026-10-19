@@ -1,0 +1,10 @@
+# Keep source consistent across Windows and Unix checkouts.
+* text=auto
+*.py text eol=lf
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.png binary

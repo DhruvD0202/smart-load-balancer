@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A hands-on classroom for a Python asyncio HTTP load balancer.">
+  <title>Traffic Lab · Smart Load Balancer</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Traffic Lab home"><span class="brand-mark" aria-hidden="true">↗</span> TRAFFIC LAB <span class="brand-divider">/</span><span class="brand-sub">Computer Networks</span></a>
+    <div class="connection"><span class="dot" id="connection-dot"></span><span id="connection-label">Connecting…</span><span class="local-tag">LOCAL DEMO</span></div>
+  </header>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">SMART LOAD BALANCER · INTERACTIVE CLASSROOM</p><h1>Watch the network work.</h1><p class="intro-copy">Send real HTTP traffic. Meet the server that answers.<br>Explore the decisions in between.</p></div>
+      <div class="intro-note"><span class="note-number">L7</span><div>Application layer<br><strong>Python + asyncio</strong></div></div>
+    </section>
+
+    <div class="notice" id="notice" role="status" aria-live="polite">Starting the classroom. Your live results will appear here.</div>
+
+    <section class="metrics" aria-label="Live measurements">
+      <div><span>Assigned requests</span><strong id="metric-requests">—</strong><small id="metric-completed">Waiting for statistics</small></div>
+      <div><span>In progress</span><strong id="metric-active">—</strong><small>Active backend assignments</small></div>
+      <div><span>Healthy servers</span><strong id="metric-healthy">—</strong><small>Checked in the background</small></div>
+      <div><span>Failed transfers</span><strong id="metric-failed">—</strong><small id="metric-rejected">Unassigned errors: —</small></div>
+    </section>
+
+    <div class="workspace">
+      <div class="main-column">
+        <section class="panel network-panel" aria-labelledby="network-title">
+          <div class="panel-heading"><div><p class="eyebrow">01 / THE REQUEST JOURNEY</p><h2 id="network-title">One entry point. Three backends.</h2></div><span class="live-label">LIVE</span></div>
+          <div class="network">
+            <div class="node client-node"><span class="node-symbol" aria-hidden="true">▤</span><strong>Your client</strong><span>HTTP request</span><code id="journey-path">/hello</code></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div class="node balancer-node"><span class="node-symbol" aria-hidden="true">⇄</span><strong>Load balancer</strong><span>Parse → pool → select</span><code id="journey-algorithm">Round-robin</code></div>
+            <div class="arrow" aria-hidden="true">→</div>
+            <div id="backend-cards" class="backend-stack" aria-label="Backend servers"><p>Waiting for the servers…</p></div>
+          </div>
+          <div class="flow-caption"><span class="small-dot"></span>Response returns through the balancer. Highlights mark completed requests, not individual packets.</div>
+          <div class="address-row"><span>Actual balancer: <a id="balancer-link" target="_blank" rel="noopener">connecting</a></span><span>Probe interval: 0.75s · thresholds: 2 failures / 2 recoveries</span></div>
+        </section>
+
+        <section class="panel" aria-labelledby="traffic-title">
+          <div class="panel-heading"><div><p class="eyebrow">02 / TRY IT YOURSELF</p><h2 id="traffic-title">Send some traffic</h2></div><span class="subtle">Real responses, live counters</span></div>
+          <div class="traffic-form">
+            <label class="path-field">Request path<select id="path-select">
+              <option value="/hello">GET /hello — all three servers</option>
+              <option value="/api/items">GET /api/items — API pool</option>
+              <option value="/static/style.css">GET /static/style.css — static pool</option>
+              <option value="/apiculture">GET /apiculture — route boundary</option>
+              <option value="/api/echo">POST /api/echo — echo a JSON body</option>
+              <option value="/slow">GET /slow — delayed response</option>
+              <option value="/truncate">GET /truncate — incomplete response</option>
+            </select></label>
+            <label class="count-field">Requests<select id="count-select"><option value="1">1 request</option><option value="6">6 requests</option><option value="12">12 requests</option></select></label>
+            <button class="button primary" id="send-button" data-control>Send traffic <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="route-note" id="route-note">Default pool → backend-1, backend-2, backend-3.</p>
+          <div class="algorithm-row"><label>Selection algorithm<select id="algorithm-select" data-control><option value="round_robin">Round-robin</option><option value="least_connections">Least-connections</option><option value="weighted_round_robin">Weighted round-robin</option></select></label><button class="button secondary" id="reset-button" data-control>Start fresh</button></div>
+          <p class="fine-print">Changing the algorithm or starting fresh restores all servers and clears this run’s counters and request history.</p>
+        </section>
+
+        <section class="panel results-panel" aria-labelledby="results-title">
+          <div class="panel-heading"><div><p class="eyebrow">03 / FOLLOW THE EVIDENCE</p><h2 id="results-title">Request results</h2></div><button id="export-button" class="text-button" disabled>Save evidence ↓</button></div>
+          <div class="table-wrap"><table><thead><tr><th>#</th><th>Request</th><th>Answered by</th><th>Result</th><th>Client time</th></tr></thead><tbody id="request-rows"><tr><td colspan="5" class="empty">Your first request starts the story. Send traffic above.</td></tr></tbody></table></div>
+          <p class="fine-print table-note">Latest 12 completions. Select a request to inspect its body. Client time includes the round trip; it differs from the balancer’s measured duration.</p>
+          <details id="response-details"><summary>Response body <span id="response-label">— select a request</span></summary><pre id="response-body">No response selected yet.</pre></details>
+          <details><summary>Inside the balancer <span>Recent JSON request &amp; health events</span></summary><pre id="event-log">No events yet.</pre></details>
+        </section>
+      </div>
+
+      <aside class="side-column">
+        <section class="guide-panel" aria-labelledby="guide-title"><p class="eyebrow">YOUR REVIEW, MADE VISIBLE</p><h2 id="guide-title">Run an experiment.</h2><p>Each experiment begins with a fresh run and checks its own result.</p>
+          <button class="experiment" data-experiment="round_robin" data-control><span class="experiment-number">01</span><span><strong>Take turns</strong><small>6 requests · round-robin</small></span><span aria-hidden="true">↗</span></button>
+          <button class="experiment" data-experiment="weighted" data-control><span class="experiment-number">02</span><span><strong>Give capacity a weight</strong><small>12 requests · expect 6 : 4 : 2</small></span><span aria-hidden="true">↗</span></button>
+          <button class="experiment" data-experiment="busy" data-control><span class="experiment-number">03</span><span><strong>Keep a busy server free</strong><small>1 slow + 6 fast · least-connections</small></span><span aria-hidden="true">↗</span></button>
+          <div class="experiment-result" id="experiment-result" role="status">Choose an experiment to see its measured result here.</div>
+        </section>
+
+        <section class="explain-panel" aria-labelledby="explain-title"><p class="eyebrow">BE READY TO EXPLAIN</p><h2 id="explain-title">Why this server?</h2><p id="algorithm-explanation">Round-robin takes turns among the healthy members of the selected pool. Equal turns apply within each pool, not across all paths combined.</p>
+          <div class="explain-rule"></div><h3>What does asyncio do?</h3><p>While one request waits for network data, the event loop can run another request or a health check. <code>await</code> is where a coroutine can give other work a turn.</p>
+          <div class="explain-rule"></div><h3>Why is this Layer 7?</h3><p>The balancer reads the HTTP path before choosing a destination. For example, <code>/api/items</code> and <code>/static/style.css</code> use different server pools.</p>
+        </section>
+
+        <section class="failure-guide"><span class="eyebrow">NEXT / PULL THE PLUG</span><h3>Make failure part of the demo.</h3><ol><li>Stop backend-2 using its server card.</li><li>Wait for <strong>unhealthy</strong>; then send 6 requests to <code>/hello</code>.</li><li>Start it again. After two successful probes, it rejoins.</li></ol><p>“Process stopped” and “unhealthy” are different: the checker needs time to detect the change.</p><p>For a partial-response example, send one request to <code>/truncate</code>. An HTTP 200 header alone does not prove the body arrived completely.</p></section>
+      </aside>
+    </div>
+    <footer><span>TRAFFIC LAB <span class="footer-divider">/</span> Smart Load Balancer for Distributing Web Traffic</span><span>Local teaching demo · one HTTP request per connection</span></footer>
+  </main>
+</body>
+</html>

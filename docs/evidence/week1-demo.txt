@@ -1,0 +1,25 @@
+Python 3.13.0; platform=win32
+Temporary local ports: proxy=61458, backend=61457
+GET through proxy: HTTP 200
+{
+  "backend": "backend-1",
+  "port": 61457,
+  "method": "GET",
+  "path": "/hello?course=CN",
+  "message": "Hello from the demo backend!"
+}
+HEAD through proxy: HTTP 200, empty body
+SEQUENTIAL: 3/3 valid responses in 3.01s
+  /slow?request=1 -> backend-1 (1.00s)
+  /slow?request=2 -> backend-1 (1.00s)
+  /slow?request=3 -> backend-1 (1.00s)
+CONCURRENT: 3/3 valid responses in 1.01s
+  /slow?request=1 -> backend-1 (1.00s)
+  /slow?request=2 -> backend-1 (1.01s)
+  /slow?request=3 -> backend-1 (1.01s)
+PASS: all responses contain the expected request path.
+Timing demonstrates overlapping waits; it is not a capacity benchmark.
+Backend stopped: client received RemoteDisconnected (expected)
+Proxy process stayed alive.
+Backend restarted: HTTP 200 through the same proxy process.
+PASS: Week 1 CLI demo checks completed.

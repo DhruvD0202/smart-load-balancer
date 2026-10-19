@@ -1,0 +1,487 @@
+{
+  "stats": {
+    "timestamp": "2026-10-19T18:19:36.761+00:00",
+    "algorithm": "weighted_round_robin",
+    "uptime_seconds": 61.082,
+    "health_check": {
+      "enabled": true,
+      "path": "/health",
+      "interval": 0.75,
+      "timeout": 0.5,
+      "failure_threshold": 2,
+      "recovery_threshold": 2
+    },
+    "pools": {
+      "default": {
+        "members": [
+          "backend-1",
+          "backend-2",
+          "backend-3"
+        ],
+        "eligible": [
+          "backend-1",
+          "backend-2",
+          "backend-3"
+        ]
+      },
+      "api": {
+        "members": [
+          "backend-1",
+          "backend-2"
+        ],
+        "eligible": [
+          "backend-1",
+          "backend-2"
+        ]
+      },
+      "static": {
+        "members": [
+          "backend-3"
+        ],
+        "eligible": [
+          "backend-3"
+        ]
+      }
+    },
+    "totals": {
+      "active": 0,
+      "requests": 12,
+      "completed": 12,
+      "failed": 0,
+      "cancelled": 0
+    },
+    "unassigned_errors": 0,
+    "backends": [
+      {
+        "name": "backend-1",
+        "host": "127.0.0.1",
+        "port": 57585,
+        "weight": 3,
+        "health": "healthy",
+        "eligible": true,
+        "active": 0,
+        "requests": 6,
+        "completed": 6,
+        "failed": 0,
+        "cancelled": 0,
+        "http_error_responses": 0,
+        "avg_response_ms": 6.725,
+        "last_response_ms": 3.574,
+        "health_checks": 80,
+        "consecutive_successes": 80,
+        "consecutive_failures": 0,
+        "last_checked": "2026-10-19T18:19:36.146+00:00",
+        "last_health_error": null
+      },
+      {
+        "name": "backend-2",
+        "host": "127.0.0.1",
+        "port": 57586,
+        "weight": 2,
+        "health": "healthy",
+        "eligible": true,
+        "active": 0,
+        "requests": 4,
+        "completed": 4,
+        "failed": 0,
+        "cancelled": 0,
+        "http_error_responses": 0,
+        "avg_response_ms": 12.251,
+        "last_response_ms": 15.108,
+        "health_checks": 80,
+        "consecutive_successes": 80,
+        "consecutive_failures": 0,
+        "last_checked": "2026-10-19T18:19:36.146+00:00",
+        "last_health_error": null
+      },
+      {
+        "name": "backend-3",
+        "host": "127.0.0.1",
+        "port": 57583,
+        "weight": 1,
+        "health": "healthy",
+        "eligible": true,
+        "active": 0,
+        "requests": 2,
+        "completed": 2,
+        "failed": 0,
+        "cancelled": 0,
+        "http_error_responses": 0,
+        "avg_response_ms": 19.316,
+        "last_response_ms": 25.357,
+        "health_checks": 80,
+        "consecutive_successes": 80,
+        "consecutive_failures": 0,
+        "last_checked": "2026-10-19T18:19:36.146+00:00",
+        "last_health_error": null
+      }
+    ],
+    "latency_definition": "Completed assigned requests: accept-to-transfer end, including client upload and backend waits; excludes cleanup."
+  },
+  "error": null,
+  "history": [
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-1",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 2.62,
+      "body": "{\n  \"backend\": \"backend-1\",\n  \"port\": 57585,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 1
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-2",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 15.24,
+      "body": "{\n  \"backend\": \"backend-2\",\n  \"port\": 57586,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 2
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-1",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 2.01,
+      "body": "{\n  \"backend\": \"backend-1\",\n  \"port\": 57585,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 3
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-3",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 13.99,
+      "body": "{\n  \"backend\": \"backend-3\",\n  \"port\": 57583,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 4
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-2",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 17.18,
+      "body": "{\n  \"backend\": \"backend-2\",\n  \"port\": 57586,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 5
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-1",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 16.59,
+      "body": "{\n  \"backend\": \"backend-1\",\n  \"port\": 57585,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 6
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-1",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 16.85,
+      "body": "{\n  \"backend\": \"backend-1\",\n  \"port\": 57585,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 7
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-2",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 4.47,
+      "body": "{\n  \"backend\": \"backend-2\",\n  \"port\": 57586,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 8
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-1",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 4.09,
+      "body": "{\n  \"backend\": \"backend-1\",\n  \"port\": 57585,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 9
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-3",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 27.03,
+      "body": "{\n  \"backend\": \"backend-3\",\n  \"port\": 57583,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 10
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-2",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 17.16,
+      "body": "{\n  \"backend\": \"backend-2\",\n  \"port\": 57586,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 11
+    },
+    {
+      "method": "GET",
+      "path": "/hello",
+      "backend": "backend-1",
+      "status": 200,
+      "complete": true,
+      "duration_ms": 5.66,
+      "body": "{\n  \"backend\": \"backend-1\",\n  \"port\": 57585,\n  \"method\": \"GET\",\n  \"path\": \"/hello\",\n  \"message\": \"Hello from the demo backend!\"\n}\n",
+      "outcome": "success",
+      "id": 12
+    }
+  ],
+  "events": [
+    {
+      "timestamp": "2026-10-19T18:18:35.681+00:00",
+      "level": "INFO",
+      "event": "health_change",
+      "backend": "backend-1",
+      "previous": "unknown",
+      "health": "healthy",
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.682+00:00",
+      "level": "INFO",
+      "event": "health_change",
+      "backend": "backend-2",
+      "previous": "unknown",
+      "health": "healthy",
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.682+00:00",
+      "level": "INFO",
+      "event": "health_change",
+      "backend": "backend-3",
+      "previous": "unknown",
+      "health": "healthy",
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.859+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 3,
+      "client_ip": "127.0.0.1",
+      "client_port": 64820,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-1",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 1.535,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.874+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 4,
+      "client_ip": "127.0.0.1",
+      "client_port": 64822,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-2",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 14.438,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.876+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 5,
+      "client_ip": "127.0.0.1",
+      "client_port": 64824,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-1",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 1.142,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.890+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 6,
+      "client_ip": "127.0.0.1",
+      "client_port": 64826,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-3",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 13.274,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.908+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 7,
+      "client_ip": "127.0.0.1",
+      "client_port": 64830,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-2",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 16.425,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.924+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 8,
+      "client_ip": "127.0.0.1",
+      "client_port": 64832,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-1",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 15.581,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.941+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 9,
+      "client_ip": "127.0.0.1",
+      "client_port": 64834,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-1",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 15.761,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.946+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 10,
+      "client_ip": "127.0.0.1",
+      "client_port": 64836,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-2",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 3.033,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.950+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 11,
+      "client_ip": "127.0.0.1",
+      "client_port": 64838,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-1",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 2.756,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.977+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 12,
+      "client_ip": "127.0.0.1",
+      "client_port": 64840,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-3",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 25.357,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:35.995+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 13,
+      "client_ip": "127.0.0.1",
+      "client_port": 64842,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-2",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 15.108,
+      "error": null
+    },
+    {
+      "timestamp": "2026-10-19T18:18:36.000+00:00",
+      "level": "INFO",
+      "event": "request",
+      "request_id": 14,
+      "client_ip": "127.0.0.1",
+      "client_port": 64844,
+      "method": "GET",
+      "path": "/hello",
+      "pool": "default",
+      "backend": "backend-1",
+      "status": 200,
+      "outcome": "complete",
+      "response_time_ms": 3.574,
+      "error": null
+    }
+  ],
+  "busy": null,
+  "generation": 2,
+  "algorithm": "weighted_round_robin",
+  "running": {
+    "backend-1": true,
+    "backend-2": true,
+    "backend-3": true
+  },
+  "balancer_url": "http://127.0.0.1:57584",
+  "log_directory": "C:\\dhruv\\VIT\\Sem-5\\Computer_Networks\\Project\\demo-output\\20261019-234800-220299"
+}

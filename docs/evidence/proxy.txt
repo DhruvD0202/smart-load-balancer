@@ -1,0 +1,24 @@
+2026-10-17 14:38:33,609 INFO Listening on 127.0.0.1:61458 -> 127.0.0.1:61457 (Ctrl+C to stop)
+2026-10-17 14:38:33,853 INFO connection_open client=('127.0.0.1', 61460) backend=127.0.0.1:61457
+2026-10-17 14:38:33,870 INFO connection_end client=('127.0.0.1', 61460) backend=127.0.0.1:61457 outcome=closed bytes_up=124 bytes_down=312 connection_ms=16.94
+2026-10-17 14:38:33,870 INFO connection_open client=('127.0.0.1', 61464) backend=127.0.0.1:61457
+2026-10-17 14:38:33,872 INFO connection_end client=('127.0.0.1', 61464) backend=127.0.0.1:61457 outcome=closed bytes_up=134 bytes_down=322 connection_ms=2.14
+2026-10-17 14:38:33,873 INFO connection_open client=('127.0.0.1', 61466) backend=127.0.0.1:61457
+2026-10-17 14:38:33,875 INFO connection_end client=('127.0.0.1', 61466) backend=127.0.0.1:61457 outcome=closed bytes_up=125 bytes_down=182 connection_ms=1.77
+2026-10-17 14:38:34,132 INFO connection_open client=('127.0.0.1', 61470) backend=127.0.0.1:61457
+2026-10-17 14:38:35,134 INFO connection_end client=('127.0.0.1', 61470) backend=127.0.0.1:61457 outcome=closed bytes_up=74 bytes_down=321 connection_ms=1002.20
+2026-10-17 14:38:35,134 INFO connection_open client=('127.0.0.1', 61474) backend=127.0.0.1:61457
+2026-10-17 14:38:36,136 INFO connection_end client=('127.0.0.1', 61474) backend=127.0.0.1:61457 outcome=closed bytes_up=74 bytes_down=321 connection_ms=1002.11
+2026-10-17 14:38:36,137 INFO connection_open client=('127.0.0.1', 61476) backend=127.0.0.1:61457
+2026-10-17 14:38:37,139 INFO connection_end client=('127.0.0.1', 61476) backend=127.0.0.1:61457 outcome=closed bytes_up=74 bytes_down=321 connection_ms=1002.25
+2026-10-17 14:38:37,139 INFO connection_open client=('127.0.0.1', 61478) backend=127.0.0.1:61457
+2026-10-17 14:38:37,140 INFO connection_open client=('127.0.0.1', 61479) backend=127.0.0.1:61457
+2026-10-17 14:38:37,141 INFO connection_open client=('127.0.0.1', 61480) backend=127.0.0.1:61457
+2026-10-17 14:38:38,142 INFO connection_end client=('127.0.0.1', 61478) backend=127.0.0.1:61457 outcome=closed bytes_up=74 bytes_down=321 connection_ms=1002.69
+2026-10-17 14:38:38,148 INFO connection_end client=('127.0.0.1', 61479) backend=127.0.0.1:61457 outcome=closed bytes_up=74 bytes_down=321 connection_ms=1007.70
+2026-10-17 14:38:38,148 INFO connection_end client=('127.0.0.1', 61480) backend=127.0.0.1:61457 outcome=closed bytes_up=74 bytes_down=321 connection_ms=1007.42
+2026-10-17 14:38:38,168 INFO connection_open client=('127.0.0.1', 61484) backend=127.0.0.1:61457
+2026-10-17 14:38:40,215 WARNING connection_failed client=('127.0.0.1', 61484) backend=127.0.0.1:61457 phase=connect error=ConnectionRefusedError detail=[WinError 1225] The remote computer refused the network connection
+2026-10-17 14:38:40,216 INFO connection_end client=('127.0.0.1', 61484) backend=127.0.0.1:61457 outcome=failed bytes_up=0 bytes_down=0 connection_ms=2047.63
+2026-10-17 14:38:40,725 INFO connection_open client=('127.0.0.1', 61492) backend=127.0.0.1:61457
+2026-10-17 14:38:40,727 INFO connection_end client=('127.0.0.1', 61492) backend=127.0.0.1:61457 outcome=closed bytes_up=128 bytes_down=316 connection_ms=1.81
