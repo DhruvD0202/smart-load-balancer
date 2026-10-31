@@ -22,7 +22,7 @@ recorded results, references and a demo checklist.
 
 Python 3.11+; no third-party packages. Tested on Windows with Python 3.13.0.
 
-Clone the repository and enter its folder (GitHub access is required while it is private):
+Clone the public repository and enter its folder:
 
 ~~~sh
 git clone https://github.com/DhruvD0202/smart-load-balancer.git

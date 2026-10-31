@@ -49,8 +49,8 @@ documented execution commands continue to work.
   and `python demo_week3.py`. Saved evidence records previous successful runs;
   it is not a claim that these checks were rerun during submission packaging.
 - Confirm GitHub contains the latest report, presentation and source files.
-- The repository is private. Confirm the faculty's GitHub account has access
-  and that any invitation has been accepted before submitting Assignment 10.
+- The repository is public. Open its URL while signed out to confirm faculty
+  can access the source and deliverables before submitting Assignment 10.
 - Upload the PDF to Assignment 8, the PPTX to Assignment 9, and the repository
   URL to Assignment 10. Verify each upload and complete VTOP's submission step.
 
