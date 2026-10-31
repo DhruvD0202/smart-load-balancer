@@ -6,8 +6,12 @@ If time is tight, defer TLS first. Keep a passing demo at each stage.
 
 Current progress: Weeks 1–3 are implemented. See [the Week 3 guide](week3.md)
 for selectable algorithms, active health checks, JSON logs, stats definitions,
-and the failure/recovery demonstration. Week 4's final report, presentation,
-experiment discussion, screenshots, and rehearsal remain. TLS is still optional.
+and the failure/recovery demonstration. The [final review presentation](../deliverables/F2_Team3_PPT.pptx)
+is prepared with speaker notes and two hidden backup slides. Week 4's report
+is available as [Word](../deliverables/F2_Team3_Report.docx)
+and [PDF](../deliverables/F2_Team3_Report.pdf), including
+experiment discussion, recorded evidence and a demo checklist. Rehearsal
+remains. TLS is still optional.
 
 | Week | Implementation | Review demonstration | Evidence / writing |
 | --- | --- | --- | --- |

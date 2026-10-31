@@ -10,3 +10,6 @@ balancer.jsonl
 demo-output/
 .DS_Store
 .pytest_cache/
+.presentation-build/
+.chart-data-*/
+.report-build/

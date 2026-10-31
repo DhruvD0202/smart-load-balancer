@@ -2,11 +2,21 @@
 
 An educational Layer 7 HTTP load balancer built with Python and asyncio.
 
+**Course submission: F2_Team3 (Slot F2, Team 3).**
+Dhruv Dudeja (24BCE0968) and Ayush Bhatt (24BDS0180).
+Faculty: Professor Sreethar S.
+See the [VTOP submission checklist](deliverables/F2_Team3_Submission_Checklist.md)
+for the assignment files and repository verification steps.
+
 **Current milestone: Week 3 — review-ready.** Round-robin, least-connections,
 weighted round-robin, active HTTP health checks, path-based pools, JSON
 configuration, structured request logs, and live statistics are implemented.
 Traffic Lab adds a browser classroom with guided experiments and failure controls.
 The HTTP subset and remaining limitations are stated below.
+
+The submission report is available as an [editable Word document](deliverables/F2_Team3_Report.docx)
+and a [PDF](deliverables/F2_Team3_Report.pdf), with architecture,
+recorded results, references and a demo checklist.
 
 ## Quick start
 
@@ -206,6 +216,12 @@ response_time_ms, and an error if present. Bodies and header values are not logg
 
 ## Verification and learning guides
 
+The [final review presentation](deliverables/F2_Team3_PPT.pptx)
+contains 13 main slides and two hidden backup slides for code and review
+questions. Every slide has speaker notes; the live-demo slide includes the
+stop/recovery checklist. See the [presentation guide](deliverables/README.md)
+for rehearsal instructions.
+
 ~~~powershell
 python -m unittest discover -s tests -v
 python demo_week3.py
@@ -256,8 +272,9 @@ python tests/smoke_week2.py
   They are test fixtures, not an API service or file-hosting implementation.
 - Intended for local coursework demos. /stats has no authentication; the supplied
   listener binds to 127.0.0.1. No production HTTP conformance/security claim.
-- Week 4 deliverables remain: final report, PPT, final experiment discussion,
-  screenshots, and rehearsal. TLS is an optional stretch goal.
+- The final review report and PPT are prepared. The report includes the
+  experiment discussion, recorded evidence and a demonstration checklist.
+  Week 4 preparation now focuses on rehearsal. TLS is an optional stretch goal.
 
 ## Resume bullet for implemented work
 
